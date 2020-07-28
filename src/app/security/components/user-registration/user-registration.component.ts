@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { LoggedInAppUser } from '../../models/loggedInAppUser';
 
 @Component({
     selector: 'user-registration',
@@ -8,12 +9,36 @@ import { UserService } from '../../services/user.service';
 })
 
 export class UserRegistrationComponent implements OnInit {
-    @ViewChild('frmLogin') frm : any;
-    user: User;
+    @ViewChild('frmLogin') frm: any;
+    user: LoggedInAppUser;
 
     constructor(private userService: UserService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.user = {
+            avatar_url: '',
+            bio: '',
+            blog: '',
+            name: '',
+            email: '',
+            html_url: '',
+            twitter_username: '',
+            company: '',
+            password: '',
+            gitAccount: ''
+        };
+    }
 
-    Submit(){}
+    Submit() { 
+        
+        let user: LoggedInAppUser = this.frm.value as LoggedInAppUser;     
+        console.log(user);
+        this.userService.saveUser(user);
+        this.Clear();          
+    }
+
+    Clear(){        
+        this.frm.reset();
+    }
+
 }

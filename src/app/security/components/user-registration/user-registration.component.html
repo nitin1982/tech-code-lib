@@ -6,35 +6,77 @@
     </header>
     <form novalidate class="w3-container w3-half" #frmLogin="ngForm" (ngSubmit)="Submit()">
         <div class="w3-row w3-section">
-            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
-            <div class="w3-rest">
-                <input class="w3-input w3-border" [ngClass]="{'w3-border-red': userName.invalid}" name="userName"
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>User Id/Email</b></label></div>
+            <div class="w3-col w3-twothird">
+                <input class="w3-input w3-border" [ngClass]="{'w3-border-red': userName.invalid}" name="email"
                     type="email"
                     pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-                    [(ngModel)]="user.userName" required #userName="ngModel" placeholder="Enter User Id">
-                <div *ngIf="userName.invalid" style="color: red;">Enter valid email</div>
+                    [(ngModel)]="user.email" required #userName="ngModel" placeholder="Enter valid email id">
+                <div *ngIf="userName.invalid" style="color: red;">Enter valid email id</div>
             </div>
         </div>
 
         <div class="w3-row w3-section">
-            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
-            <div class="w3-rest">
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>Password</b></label></div>
+            <div class="w3-col w3-twothird">
                 <input class="w3-input w3-border" [ngClass]="{'w3-border-red': password.invalid}" name="password"
-                    minlength="8" #password="ngModel" [(ngModel)]="user.password" required type="text"
+                    type="text" minlength="8" [(ngModel)]="user.password" required #password="ngModel"
                     placeholder="Enter Password">
                 <div *ngIf="password.invalid" style="color: red;">Enter valid password</div>
             </div>
         </div>
 
         <div class="w3-row w3-section">
-            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
-            <div class="w3-rest">
-                <textarea id="w3review" name="w3review" rows="4" cols="50">
-                    At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
-                    </textarea>
-                <div *ngIf="password.invalid" style="color: red;">Enter bio</div>
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>Full Name</b></label></div>
+            <div class="w3-col w3-twothird">
+                <input class="w3-input w3-border" [ngClass]="{'w3-border-red': name.invalid}" name="name" type="text"                    
+                    [(ngModel)]="user.name" required #name="ngModel" placeholder="Enter Full Name">
+                <div *ngIf="name.invalid" style="color: red;">Enter Full Name</div>
             </div>
         </div>
+        <div class="w3-row w3-section">
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>Bio</b></label></div>
+            <div class="w3-col w3-twothird">
+                <textarea class="w3-input w3-border" name="bio" [(ngModel)]="user.bio" #bio="ngModel"
+                    placeholder="Enter Bio"></textarea>
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>Company/School/Organization</b></label></div>
+            <div class="w3-col w3-twothird">
+                <input class="w3-input w3-border" name="company" [(ngModel)]="user.company" #company="ngModel"
+                    placeholder="Enter name of Company/School/Organization">
+
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>GitHub Account</b></label></div>
+            <div class="w3-col w3-twothird">
+                <input class="w3-input w3-border" name="gitAccount" [(ngModel)]="user.gitAccount"
+                    #gitAccount="ngModel" placeholder="Enter GitHub Account">
+
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>Twitter Account</b></label></div>
+            <div class="w3-col w3-twothird">
+                <input class="w3-input w3-border" name="twitter" [(ngModel)]="user.twitter_username"                     
+                #twitter="ngModel" placeholder="Enter Twitter Account">
+
+            </div>
+        </div>
+
+
         <div class="w3-row w3-section">
             <div>
                 <input type="submit" class="w3-btn w3-theme-d2" [disabled]="frmLogin.invalid" value="Save">

@@ -8,7 +8,7 @@
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
             <div class="w3-rest">
-                <input class="w3-input w3-border" [ngClass]="{'w3-border-red': userName.invalid}" name="first"
+                <input class="w3-input w3-border" [ngClass]="{'w3-border-red': userName.invalid}" name="userName"
                     type="email"
                     pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
                     [(ngModel)]="user.userName" required #userName="ngModel" placeholder="Enter User Id">

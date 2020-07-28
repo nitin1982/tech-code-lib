@@ -6,5 +6,7 @@ export interface LoggedInAppUser{
     email: string;    
     html_url: string;
     twitter_username: string;
-    company: string
+    company: string;
+    password: string;
+    gitAccount: string;
 }

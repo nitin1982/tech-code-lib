@@ -21,7 +21,7 @@ declare const gitLogin: any;
 export class LoginComponent implements OnInit {
     @ViewChild('frmLogin') frm : any;
     user: User;    
-    forgotPassword: boolean = false;
+    //forgotPassword: boolean = false;
     signingInProgress: boolean = false;
     loggedIn: boolean = false;
     
@@ -34,44 +34,27 @@ export class LoginComponent implements OnInit {
         this.user = {userName: '', password: ''};                
     }
 
-    toggleForgotPassword(trueFalse: number){
-        this.forgotPassword = (trueFalse == 1);
-    }
+    
     Submit(){      
         this.signingInProgress = true;
         let user: User = this.frm.value as User;     
         console.log(user);
-        this.Clear();          
+            
         if(this.frm.valid){
-            this.userService.login(user).subscribe(val => 
-                {   
-                    // this.signingInProgress = false;
-                    // if(!this.userService.redirectUrl)
-                    //     this.userService.redirectUrl = 'AffiliatesPerformance';
-                    
-                    // if(val){
-                    //     if(val.IsNewPassword){
-                    //         this.router.navigate(['ResetPassword']);
-                    //     }else if(this.userService.redirectUrl){
-                    //         this.router.navigate([this.userService.redirectUrl]);
-                    //     }
-                        
-                    // }
-                }
-            );
+            this.userService.login(user);
         }
-
-        if(this.forgotPassword){
-            // if(user.userName == undefined || user.userName == ''){
-            //     this.alertService.error(this.settings.incorrectCredentialsForgotPasswordMsg);                              
-            // }else{
-            //     this.userService.forgotPassword(user.userName).subscribe(data => {
-            //         if(data.Success)
-            //             this.alertService.info(this.settings.passwordSentToEmailSuccessfullyMsg, false);
-            //     });  
-            //     this.Clear();   
-            // }
-        }
+        this.Clear();      
+        // if(this.forgotPassword){
+        //     // if(user.userName == undefined || user.userName == ''){
+        //     //     this.alertService.error(this.settings.incorrectCredentialsForgotPasswordMsg);                              
+        //     // }else{
+        //     //     this.userService.forgotPassword(user.userName).subscribe(data => {
+        //     //         if(data.Success)
+        //     //             this.alertService.info(this.settings.passwordSentToEmailSuccessfullyMsg, false);
+        //     //     });  
+        //     //     this.Clear();   
+        //     // }
+        // }
     }
 
     loginGit(){
@@ -84,7 +67,9 @@ export class LoginComponent implements OnInit {
                 email: '',    
                 html_url: '',
                 twitter_username: '',
-                company: ''
+                company: '',
+                password: '',
+                gitAccount: ''
             };
 
             loggedInUser.avatar_url = data.avatar_url;

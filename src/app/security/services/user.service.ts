@@ -8,8 +8,20 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class UserService {
     constructor(private firestore: AngularFirestore) { }
 
-    login(user: User): Observable<LoggedInAppUser> {
-        return of({} as LoggedInAppUser);
+    login(user: User){
+        console.log(user);
+        var appUserRef = this.firestore.collection('AppUsers');
+        appUserRef.ref.where('email', '==', user.userName).where('password', '==', user.password).get().then(data =>{
+            if(data.docs.length === 0){
+                console.log('No user found');
+            }
+            data.docs.forEach(x => {
+                if (x.exists) {
+                    console.log(x.data());
+                }                
+            })
+        } );
+
     }
 
     saveUser(appUser: LoggedInAppUser) {        
