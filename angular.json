@@ -30,7 +30,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["src/assets/js/fbLogin.js"]
           },
           "configurations": {
             "production": {
@@ -121,6 +121,10 @@
               "devServerTarget": "tech-code-lib:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

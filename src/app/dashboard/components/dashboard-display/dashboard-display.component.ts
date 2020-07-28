@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-display',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-display.component.scss']
 })
 export class DashboardDisplayComponent implements OnInit {
+  items: Observable<any[]>;
+  constructor(private firestore: AngularFirestore) {
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
+    this.items = this.firestore.collection('items').valueChanges();
   }
 
 }

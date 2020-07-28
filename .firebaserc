@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bestsprits": {
+      "hosting": {
+        "tech-code-lib": [
+          "awesomeproject"
+        ]
+      }
+    }
+  }
+}

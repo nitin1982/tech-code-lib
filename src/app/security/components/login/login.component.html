@@ -1,0 +1,48 @@
+<div class="w3-card">
+    <header class="w3-theme-d2">
+        <div class="w3-container">
+            <h2>Sign in!</h2>
+        </div>
+    </header>
+    <form novalidate class="w3-container" #frmLogin="ngForm" (ngSubmit)="Submit()">
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" [ngClass]="{'w3-border-red': userName.invalid}" name="first"
+                    type="email"
+                    pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                    [(ngModel)]="user.userName" required #userName="ngModel" placeholder="Enter User Id">
+                <div *ngIf="userName.invalid" style="color: red;">Enter valid email</div>
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" [ngClass]="{'w3-border-red': password.invalid}" name="password"
+                    minlength="8" #password="ngModel" [(ngModel)]="user.password" required type="password"
+                    placeholder="Enter Password">
+                <div *ngIf="password.invalid" style="color: red;">Enter valid password</div>
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div>
+                <input type="submit" class="w3-btn w3-theme-d2" [disabled]="frmLogin.invalid || signingInProgress"
+                    value="Sign in">
+                &nbsp;
+                <a id="github-button" class="w3-btn w3-theme-d2" (click)="loginGit()">
+                    <i class="fa fa-github"></i> Sign in with GitHub
+                </a>
+                &nbsp;
+                <a id="github-button" class="w3-btn w3-teal">
+                    New User
+                </a>
+            </div>
+        </div>
+        <!-- <div>
+            <pre>{{ frmLogin.value | json }}</pre>
+        </div> -->
+    </form>
+
+</div>
