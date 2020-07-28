@@ -11,13 +11,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { LoginComponent } from './security/components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UserRegistrationComponent } from './security/components/user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     HomeComponent,
-    LoginComponent    
+    LoginComponent,
+    UserRegistrationComponent    
   ],
   imports: [
     BrowserModule,
