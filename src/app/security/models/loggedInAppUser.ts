@@ -9,4 +9,5 @@ export interface LoggedInAppUser{
     company: string;
     password: string;
     gitAccount: string;
+    
 }

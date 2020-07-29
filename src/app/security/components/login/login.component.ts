@@ -69,7 +69,8 @@ export class LoginComponent implements OnInit {
                 twitter_username: '',
                 company: '',
                 password: '',
-                gitAccount: ''
+                gitAccount: '',
+               
             };
 
             loggedInUser.avatar_url = data.avatar_url;
@@ -80,8 +81,8 @@ export class LoginComponent implements OnInit {
             loggedInUser.html_url = data.html_url;
             loggedInUser.twitter_username = data.twitter_username;
             loggedInUser.company = data.company;
-
-            //console.log(loggedInUser);
+            
+            console.log(loggedInUser);
             this.userService.saveUser(loggedInUser);
         });
         

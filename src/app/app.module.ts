@@ -12,7 +12,7 @@ import { LoginComponent } from './security/components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserRegistrationComponent } from './security/components/user-registration/user-registration.component';
-
+import { AngularFireStorageModule} from "@angular/fire/storage";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +26,10 @@ import { UserRegistrationComponent } from './security/components/user-registrati
     AppRoutingModule,
     DashboardModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, FormsModule, CommonModule
+    AngularFirestoreModule, FormsModule, CommonModule, AngularFireStorageModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

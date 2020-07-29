@@ -75,7 +75,14 @@
 
             </div>
         </div>
-
+        <div class="w3-row w3-section">
+            <div class="w3-col w3-third">
+                <label class="w3-text-teal"><b>Image</b></label></div>
+            <div class="w3-col w3-twothird">
+                <input type="file" (change)="uploadFile($event)" name="file" accept=".png,.jpg" />
+            </div>
+        </div>
+        
 
         <div class="w3-row w3-section">
             <div>

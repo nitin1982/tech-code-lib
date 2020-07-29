@@ -7,7 +7,7 @@ import { UserRegistrationComponent } from '../security/components/user-registrat
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: 'dashboard/:id',
     component: DashboardDisplayComponent
   },
   {
