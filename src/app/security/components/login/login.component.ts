@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
 
     loginGit(){
         gitLogin(environment.firebase).then(data => {
+            console.log(data);
             let loggedInUser: LoggedInAppUser = {
                 avatar_url: '',
                 bio: '',

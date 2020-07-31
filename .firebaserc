@@ -1,11 +1,15 @@
 {
   "targets": {
-    "bestsprits": {
+    "awesomeproject-a8f41": {
       "hosting": {
         "tech-code-lib": [
-          "awesomeproject"
+          "stg"
         ]
       }
     }
+  },
+  "projects": {
+    "stg": "awesomeproject-a8f41",
+    "default": "awesomeproject-a8f41"
   }
 }
